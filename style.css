@@ -52,6 +52,10 @@ article {
     overflow: hidden;
 }
 
+p {
+    color: #fff;
+}
+
 .character {
     display: flex;
     flex-wrap: wrap;
@@ -67,9 +71,9 @@ article {
 }
 
 .cardInfo {
-    padding: 10px;
+    padding: 1.25rem;;
     font-family: 'Roboto';
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .characterCardTextWrapper {
@@ -93,16 +97,20 @@ article {
 }
 
 .characterCardName {
-    color: rgb(245, 245, 245);
+    /* color: rgb(245, 245, 245); */
+    color: rgb(255, 152, 0);
     font-size: 1.625rem;
     font-weight: 400;
     font-stretch: expanded;
+    text-align: left;
     margin: 0px;
 }
 
 .characterCardDescription {
     color: rgb(187, 187, 187);
+    font-family: 'Dosis';
     font-size: 0.875rem;
+    text-align: left;
     margin: 0px;
 }
 
@@ -190,3 +198,5 @@ article {
     transition: color 0.2s ease 0s;
     border-bottom: 1px solid rgb(255, 152, 0);
 }
+
+/* Raleway Dosis */
