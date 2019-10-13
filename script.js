@@ -46,10 +46,17 @@ const cardRandom = (random1, random2, random3) => {
         let gender2 = data[1].gender;
         let gender3 = data[2].gender;
 
-        let origin1 = data[0].origin[name];
-        let origin2 = data[1].origin[name];
-        let origin3 = data[2].origin[name];
+        let origin1 = data[0].origin.name;
+        let origin2 = data[1].origin.name;
+        let origin3 = data[2].origin.name;
 
+        let location1 = data[0].location.name;
+        let location2 = data[1].location.name;
+        let location3 = data[2].location.name;
+
+        // let id1 = data[0].id;
+        // let id2 = data[1].id;
+        // let id3 = data[2].id;
         
 
         //entregando las imagenes al método que las cambiará en el HTML
@@ -77,11 +84,14 @@ const cardRandom = (random1, random2, random3) => {
         changeOrigin2(origin2);
         changeOrigin3(origin3);
 
-       
+        changeLocation1(location1);
+        changeLocation2(location2);
+        changeLocation3(location3);
 
-        console.log(character1);
-        console.log(character2);
-        console.log(character3);
+        // changeId1(id1);
+        // changeId2(id2);
+        // changeId3(id3);
+       
         return data;
         
     });
@@ -161,4 +171,16 @@ const changeOrigin2 = (origin2) => {
 
 const changeOrigin3 = (origin3) => {
     document.getElementById("ori3").innerText = origin3;
+}
+
+const changeLocation1 = (location1) => {
+    document.getElementById("des1").innerText = location1;
+}
+
+const changeLocation2 = (location2) => {
+    document.getElementById("des2").innerText = location2;
+}
+
+const changeLocation3 = (location3) => {
+    document.getElementById("des3").innerText = location3;
 }
