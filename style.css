@@ -119,6 +119,10 @@ p {
 
 
 /* Estilos para el header de las tarjetas */
+.cardImage {
+    height: 300px;
+}
+
 .characterCardTitle {
     width: 100%;
     opacity: 0.8;
