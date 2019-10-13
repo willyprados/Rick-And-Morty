@@ -14,32 +14,31 @@
 
 <body>
     <!-- Cabecera de la pagina-->
-    <div class="header">
+    <header class="header">
         <h1><a href="index.html" class="home">RICK AND MORTY</a></h1>
         <h2 class="hero1">HEY, DID YOU EVER WANT TO HOLD A TERRY FOLD?</h2>
         <h2 class="hero2">I GOT ONE RIGHT HERE, GRAB MY TERRY FLAP</h2>
-        <div>
-            <nav>
-                <ul class="menu">
-                    <li id="img1"><a href="index.html" class="home">HOME</a></li>
-                    <li id="img2"><a href="chacteres.html" class="home">EPISODE</a></li>
-                    <li id="img3"><a href="contact.html" class="home">CONTACT</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-
+    </header>
+    <main>
+        <nav>
+            <ul class="menu">
+                <li id="nav0"><a href="index.html" class="home">HOME</a></li>
+                <li id="nav1"><a href="characteres.html" class="home">EPISODE</a></li>
+                <li id="nav2"><a href="contact.html" class="home">CONTACT</a></li>
+            </ul>
+        </nav>
+    </main>
+    
+    <!-- Aqui vienen las secciones de los personajes con JS-->
     <section id="content" class="character"></section>
 
+    <!-- Aqui vienen la paginación con JS-->
     <div class="botons">
         <button id="pages" class="boton"><strong>PAG #</strong></button>
     </div>
 
-    <!-- Aqui vienen las secciones de los personajes con JS-->
-    <div>
-        <script src="chacteres.js"></script>
-
-    </div>
+    
+   
 
     <div class="footer">
         <p>CHARACTERS: 493  |  LOCATIONS: 76  |  EPISODES: 31</p>
@@ -47,6 +46,10 @@
             <a href="willy.saladtech.me" class="link">Willy Prado</a> 2019
         </span>
     </div>
+    
+    <script src="characteres.js"></script>
+
+    
 </body>
 
 
