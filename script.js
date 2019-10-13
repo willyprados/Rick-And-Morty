@@ -16,19 +16,6 @@ const dataRandom = (min, max) => {
 }
 
 
-
-let rick = []; //
-
-let image = []; //
-let name = []; //
-let id = [];
-let created = [];
-let status = []; //
-let gender = []; //
-let species = []; //
-let origin = []; //
-
-
 // llamado de la API
 const cardRandom = (random1, random2, random3) => {
     fetch(`https://rickandmortyapi.com/api/character/${random1}, ${random2}, ${random3}`)
