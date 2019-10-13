@@ -1,199 +1,158 @@
+window.onload = () => {
+    initialContent(1);
+};
+
 const url = "https://rickandmortyapi.com/api/character";
-const url1 = "https://rickandmortyapi.com/api/episode";
-let rickAndMorty = [];
-let rick = [];
-let rickEpisode = [];
-
-fetch(url)
-.then(data => data.json())
-.then(data => {
-    rickEpisode = data;
-    console.log(rickEpisode);
-});
-
-fetch(url)
-.then(data => data.json())
-.then(data => {
-    rick = data.info;
-    console.log(rick);
-});
-
-fetch(url)
-.then(data => data.json())
-.then(data => {
-    rickAndMorty = data.results;
-    console.log(rickAndMorty);
-});
 
 
+const initialContent = (numPagina) => {
+    fetch(`https://rickandmortyapi.com/api/character/?page=${numPagina}`)
+    .then(data => data.json())
+    .then(data => {
+        const results = data.results // Results es un arreglo de objetos
+        for(let i = 0; i < results.length; i++){
+            const image = data.results[i].image;
+            const names = data.results[i].name;
+            const status = data.results[i].status;
+            const species = data.results[i].species;
+            const gender = data.results[i].gender;
+            const origin = data.results[i].origin.name;
+            const id = data.results[i].id;
+            const location = data.results[i].location.name;
 
+            const cards = `                
+            <!-- Character Card Number 1-->
+                <article class="characterCard">
+                    <div class="cardHeader">
+                        <div class="cardImage">
+                            <img src=${image} />
+                        </div>
+                        <div class="characterCardTitle">
+                            <h2 class="characterCardName">${names}</h2>
+                            <p class="characterCardDescription">ID:${id} | Location:${location}</p>
+                        </div>
+                    </div>
+                    <div class="cardInfo">
+                        <div class="characterCardTextWrapper">
+                            <span>STATUS</span>
+                            <p>${status}</p>
+                        </div>
+                        <div class="characterCardTextWrapper">
+                            <span>SPECIES</span>
+                            <p>${species}</p>
+                        </div>
+                        <div class="characterCardTextWrapper">
+                            <span>GENDER</span>
+                            <p>${gender}</p>
+                        </div>
+                        <div class="characterCardTextWrapper">
+                            <span>ORIGIN</span>
+                            <p>${origin}</p>
+                        </div>
+                    </div>
+                </article>                
+            `;
+            
+            const contents = document.getElementById('content');
+            contents.innerHTML += cards;
+        }
 
-const ids = /character/[1,2,3];
+        let page = `
+            <nav aria-label="pageNav" class="pages">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                    <a class="page-link disabled" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                    </li>
+            
+                    <li class="page-item active" id="page1" onclick="cambiarContenido(1)"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item" id="page2" onclick="cambiarContenido(2)"><a class="page-link">2</a></li>
+                    <li class="page-item" id="page3" onclick="cambiarContenido(3)"><a class="page-link">3</a></li>
+                    <li class="page-item" id="page4" onclick="cambiarContenido(4)"><a class="page-link">4</a></li>
+                    <li class="page-item" id="page5" onclick="cambiarContenido(5)"><a class="page-link">5</a></li>
+                    <li class="page-item" id="page6" onclick="cambiarContenido(6)"><a class="page-link">6</a></li>
+                    <li class="page-item" id="page7" onclick="cambiarContenido(7)"><a class="page-link">7</a></li>
+                    <li class="page-item" id="page8" onclick="cambiarContenido(8)"><a class="page-link">8</a></li>
+                    <li class="page-item" id="page9" onclick="cambiarContenido(9)"><a class="page-link">9</a></li>
+                    <li class="page-item" id="page10" onclick="cambiarContenido(10)"><a class="page-link">10</a></li>
+                    <li class="page-item" id="page11" onclick="cambiarContenido(11)"><a class="page-link">11</a></li>
+                    <li class="page-item" id="page12" onclick="cambiarContenido(12)"><a class="page-link">12</a></li>
+                    <li class="page-item" id="page13" onclick="cambiarContenido(13)"><a class="page-link">13</a></li>
+                    <li class="page-item" id="page14" onclick="cambiarContenido(14)"><a class="page-link">14</a></li>
+                    <li class="page-item" id="page15" onclick="cambiarContenido(15)"><a class="page-link">15</a></li>
+                    <li class="page-item" id="page16" onclick="cambiarContenido(16)"><a class="page-link">16</a></li>
+                    <li class="page-item" id="page17" onclick="cambiarContenido(17)"><a class="page-link">17</a></li>
+                    <li class="page-item" id="page18" onclick="cambiarContenido(18)"><a class="page-link">18</a></li>
+                    <li class="page-item" id="page19" onclick="cambiarContenido(19)"><a class="page-link">19</a></li>
+                    <li class="page-item" id="page20" onclick="cambiarContenido(20)"><a class="page-link">20</a></li>
+                    <li class="page-item" id="page21" onclick="cambiarContenido(21)"><a class="page-link">21</a></li>
+                    <li class="page-item" id="page22" onclick="cambiarContenido(22)"><a class="page-link">22</a></li>
+                    <li class="page-item" id="page23" onclick="cambiarContenido(23)"><a class="page-link">23</a></li>
+                    <li class="page-item" id="page24" onclick="cambiarContenido(24)"><a class="page-link">24</a></li>
+                    <li class="page-item" id="page25" onclick="cambiarContenido(25)"><a class="page-link">25</a></li>
+                    
+                    
+                    <li class="page-item">
+                    <a class="page-link" href="../characters/page2/page2.html">Siguiente</a>
+                    </li>
+                </ul>
+            </nav>
+        
+            `;
 
+        const pages = document.getElementById('pages');
+        pages.innerHTML += page;
 
+        //llamando a la función cambiarImagenesDinamicas y le envío el arreglo con las imagenes, títulos y status
+        //cambiarImagenesDinamicas( placeHolderImg, placeHolderNombre, placeHolderStatus )
+    
+        return data;
+    }
+)};
 
+const contentChange = ( numberPage ) => {
 
+    let selectCard = document.querySelectorAll('.card img');
+    //el selector de card me trae las cards antiguas
+    console.log(selectCard);
+    console.log('estás en la página: ' + numberPage);
 
-//Formula para sacar el personaje de forma aleatoria
-function getRandomInt(character) {
-return Math.floor(Math.random() * Math.floor(character));
+    fetch(`https://rickandmortyapi.com/api/character/?page=${numeroPagina}`)
+        .then(response => response.json())
+        .then(data => {
+            for(let i = 0; i < 20; i++){
+                images[i] = data.results[i].image;
+                names[i] = data.results[i].name;
+                status[i] = data.results[i].status;
+                species[i] = data.results[i].species;
+                gender[i] = data.results[i].gender;
+                origin[i] = data.results[i].origin;
+                id[i] = data.results[i].id;
+                location[i] = data.results[i].location.name;
+                
+                selectCard[i].src = images[i];
+                console.log(selectCard[i]);
+
+            }
+    
+            //llamando a la función cambiarImagenesDinamicas y le envío el arreglo con las imagenes, títulos y status
+            //cambiarImagenesDinamicas( placeHolderImg, placeHolderNombre, placeHolderStatus )
+    
+            return data;
+        } )
+        .catch((err) => console.log(err));
 }
 
-console.log(getRandomInt(494));
-// expected output: 0, 1 or 2
-
-console.log(getRandomInt(20));
-// expected output: 0
-
-console.log(Math.random());
-// expected output: a number between 0 and 1
-
-const aja = () => {
-    return rickAndMorty[4]["name"];
-} 
-
-console.log(aja);
-
-rickAndMorty[1]["name"];
 
 
 
 
 
+// const ids = /character/[1,2,3];
 
+// rickAndMorty[1]["name"];
 
-
-
-const tarjeta = `
-    <section class="character">
-    <!-- Character Card Number 1-->
-        <article class="characterCard">
-            <div class="cardHeader">
-                <div class="cardImage">
-                    <img src="https://rickandmortyapi.com/api/character/avatar/56.jpeg" />
-                </div>
-                <div class="characterCardTitle">
-                    <h2 class="characterCardName">Esto es una prueba</h2>
-                    <p class="characterCardDescription">Esto es un mensaje que se estrae de la API en el que se describe el personaje xD</p>
-                </div>
-            </div>
-            <div class="cardInfo">
-                <div class="characterCardTextWrapper">
-                    <span>STATUS</span>
-                    <p>Dead</p>
-                </div>
-                <div class="characterCardTextWrapper">
-                    <span>SPECIES</span>
-                    <p>Human</p>
-                </div>
-                <div class="characterCardTextWrapper">
-                    <span>GENDER</span>
-                    <p>Male</p>
-                </div>
-                <div class="characterCardTextWrapper">
-                    <span>ORIGIN</span>
-                    <p>Unknow</p>
-                </div>
-            </div>
-        </article>
-    </section>
-`
-
-
-document.write(tarjeta)
-/*
-for(var i = 0; i <= 2; i++){
-    let character = 
-}
-*/
+// document.write(tarjeta)
 
 // ${rickAndMorty[0].name}
 
 
-// Codigo que genera la tarjeta en javascript lineas 155 a 231
-const createCardImg = (name, src) => {
-    const img = document.createElement('img');
-    img.classList.add('cardImage');
-    img.alt = `${image} photo`;
-    img.src = src;
-
-    return img
-}
-
-const createCardTitle = (name, id) => {
-    const div = document.createElement('div'),
-    h2 = document.createElement('h2'),
-    p = document.createElement('p');
-
-    div.classList.add('homeCard-title');
-    h2.innerText = name;
-    p.innerText = `ID: ${id}`;
-    div.appendChild(h2).appendChild(p);
-
-    return div
-}
-
-const createCardImgWrapper = (data) => {
-    const cardImg = createCardImg(data && data.name || 'No Name', data && data.image || placeholder),
-    cardTitle = createCardTitle(data && data.name || 'No Name', data && data.id || ''),
-    div = document.createElement('div');
-
-    div.classList.add('homeCard-imgWrapper');
-    div.appendChild(cardImg)
-    div.appendChild(cardTitle)
-
-    return div
-}
-
-const createCardInfoWrapper = (data) => {
-    const information = [
-    { info: 'STATUS', data: data && data.status || 'No status' },
-    { info: 'SPECIES', data: data && data.species || 'No species'},
-    { info: 'GENDER', data: data && data.gender || 'No gender'},
-    { info: 'ORIGIN', data: data && data.origin && data.origin.name || 'No origin'},
-    { info: 'LAST LOCATION', data: data && data.location && data.location.name || 'No location'},
-],
-    cardInfoWraper = document.createElement('div'),
-    infoDivs = information.map(e => {
-    const div = document.createElement('div'),
-    span = document.createElement('span'),
-    p = document.createElement('p');
-    
-    div.classList.add('homeCard-text');
-    span.innerText = e.info;
-    p.innerText = e.data;
-
-    div.appendChild(span)
-    div.appendChild(p)
-
-    return div
-});
-
-cardInfoWraper.classList.add('homeCard-info');
-infoDivs.forEach(div => cardInfoWraper.appendChild(div))
-
-return cardInfoWraper
-}
-
-const createHomeCard = (data) => {
-    const card = document.createElement('article'),
-    imgWrapper = createCardImgWrapper(data),
-    infoWrapper = createCardInfoWrapper(data);
-
-    card.classList.add('homeCard');
-
-    card.appendChild(imgWrapper)
-    card.appendChild(infoWrapper)
-
-    return card
-}
-
-// Esto es lo que se ejecuta al final
-const showcase = document.getElementById('showcase')
-
-// Con estas 3 lineas se crean las tarjetas de Rick, Morty y Summer
-showcase.appendChild(createHomeCard(dummyData[0]))
-showcase.appendChild(createHomeCard(dummyData[1]))
-showcase.appendChild(createHomeCard(dummyData[2]))
-// Esta linea es por si no encuentra datos
-showcase.appendChild(createHomeCard())
