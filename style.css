@@ -25,7 +25,6 @@ h1 {
     text-align: center;
     margin-top: 0px;
     padding-top: 50px;
-    margin-bottom: -20px
 }
 
 h2 {
@@ -61,23 +60,39 @@ p {
 /* Estilos para el header de las paginas */
 .header {
     background: white;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    /* justify-content: center; */
+}
+
+.hero {
+    padding: 5px 4px 0px;
+    background:black none repeat scroll 0% 0%;
+    transform: skew(-2deg) translateY(-6px) translateY(-12px);
 }
 
 .hero1 {
+    margin: 0px;
+    text-transform: uppercase;
+    font-size: 3.75rem;
+}
+
+.hero2 {
     font-size: 1.875rem;
     background: black;
     color: rgb(255, 152, 0);
     margin: 0%;
-    position: relative;
 }
 
-.hero2 {
+.hero3 {
     background: transparent;
     font-size: 1.875rem;
     color: transparent;
-    margin-top: -2.7%;
-    margin-bottom: 0px;
-    position: relative;
+    top: 4px;
+    margin: 0px;
+    position: absolute;
 }
 
 .home {
@@ -96,9 +111,31 @@ p {
 }
 
 .menu li {
-    list-style: none;
     padding: 15px;
     display: inline-block;
+}
+
+.menu li:active {
+    color: rgb(255, 152, 0);
+}
+
+.menu li a:active {
+    color: rgb(255, 152, 0);
+}
+
+.navLink {
+    color: black;
+    text-decoration: none;
+}
+
+.navLink:active:focus {
+    color: rgb(255, 152, 0);
+}
+
+.navLink:hover {
+    list-style: none;
+    color: rgb(255, 152, 0);
+    text-decoration: none;
 }
 
 
@@ -114,19 +151,31 @@ p {
 .characterCard {
     margin-right: 15px;
     margin-left: 15px;
-    
 }
 
 
 /* Estilos para el header de las tarjetas */
+.cardHeader {
+    position: relative;
+    height: 300px;
+    width: 300px;
+}
+
 .cardImage {
     height: 300px;
+    background: url(https://rickandmortyapi.com/api/character/avatar/56.jpeg);  
+}
+
+.cardImage img {
+    margin: 0px;
+    opacity: 1;
+    transition: opacity 0.5s ease 0s;
 }
 
 .characterCardTitle {
     width: 100%;
     opacity: 0.8;
-    /* position: absolute; */
+    position: absolute;
     bottom: 0px;
     background: rgb(32, 35, 41);
     padding: 0.625rem;
@@ -154,9 +203,11 @@ p {
 
 /* Estilos para la información de las tarjetas */
 .cardInfo {
-    padding: 1.25rem;;
+    padding: 0.25rem;;
     font-family: 'Roboto';
     font-size: 13px;
+    padding: 1.25rem;
+    padding-top: 0px;
 }
 
 .characterCardTextWrapper {
@@ -174,8 +225,8 @@ p {
 /* Estilos para los botones de paginación de Characteres */
 .botons {
     display: flex;
-    justify-content: flex-end;
     justify-content: center;
+    margin: 1.50rem;
 }
 
 .boton {
@@ -184,22 +235,31 @@ p {
     color: black;
     border-radius: 12px;
     padding: 14px 40px;
-    transition-duration: 0.4s;
     border: none;
+    cursor: pointer;
+    margin: 5px;
 }
 
-.boton:hover {
-    background: rgb(255, 187, 0);
-    color: black;
-}
-
-.button:active {
-    background: rgb(185, 113, 5);
-    color: black;
+.pages {
+    padding: 10px;
 }
 
 .pagination {
-    justify-content: center;
+    display: ruby;    
+    padding-left: 0px;
+}
+
+.page-item {
+    text-transform: uppercase;
+    list-style : none;
+}
+
+.pageLink {
+    text-decoration: none;
+}
+
+.page-link {
+    text-decoration: none;
 }
 
 
