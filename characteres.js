@@ -4,7 +4,6 @@ const initialContent = (numPagina) => {
     fetch(numPagina)
     .then(data => data.json())
     .then(data => {
-        
         const results = data.results // Results es un arreglo de objetos
         for(let i = 0; i < results.length; i++){
             const image = data.results[i].image;
@@ -15,7 +14,6 @@ const initialContent = (numPagina) => {
             const origin = data.results[i].origin.name;
             const id = data.results[i].id;
             const location = data.results[i].location.name;
-
 
             // Creando las tarjetas
             const cards = `                
@@ -51,21 +49,17 @@ const initialContent = (numPagina) => {
                 </article>                
             `;
         
-            // Insertandolas en el HTML
-
+            // Imprimiendo en el HTML las tarjetas
             const contents = document.getElementById('content');
             contents.innerHTML += cards;
 
-
-            // Indicando en que pagina te encuentras
+            // Indicador de pagina
             // const idPages = documen.getElementById("page")
 
 
 
-            // Creando los botones para que limpien la pagina y carguen los nuevos datos
-
+            // Creando botones para cargar la informacion de la pag Next o Prev
             document.getElementById("btnNext").onclick = () => {
-                console.log("Has presionado Next");
                 while (document.getElementById("content").firstChild) {
                     document.getElementById("content").removeChild(document.getElementById("content").firstChild);
                 }
@@ -73,7 +67,6 @@ const initialContent = (numPagina) => {
             };
 
             document.getElementById("btnPrev").onclick = () => {
-                console.log("Has presionado Prev");
                 while (document.getElementById("content").firstChild) {
                     document.getElementById("content").removeChild(document.getElementById("content").firstChild);
                 }
@@ -85,7 +78,7 @@ const initialContent = (numPagina) => {
     }
 )};
 
-// Validando para cargar el contenido
+// Verificando para iniciar la carga de información
 if (start) {
     initialContent("https://rickandmortyapi.com/api/character/?page=1");
     
