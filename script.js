@@ -184,3 +184,8 @@ const changeLocation2 = (location2) => {
 const changeLocation3 = (location3) => {
     document.getElementById("des3").innerText = location3;
 }
+
+// Año del Footer
+const date = new Date();
+const year = date.getFullYear();
+document.getElementById("year").innerHTML = year;

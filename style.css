@@ -115,12 +115,14 @@ p {
     display: inline-block;
 }
 
-.menu li:active {
-    color: rgb(255, 152, 0);
+li#nav.active{
+    border-bottom: 4px solid rgb(255, 152, 0);
+    margin-bottom: 15px;
 }
 
-.menu li a:active {
+.active a{
     color: rgb(255, 152, 0);
+    font-weight: bold;
 }
 
 .navLink {

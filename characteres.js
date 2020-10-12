@@ -83,4 +83,9 @@ if (start) {
     initialContent("https://rickandmortyapi.com/api/character/?page=1");
     
     start = false;
-} 
+};
+
+// Año del Footer
+const date = new Date();
+const year = date.getFullYear();
+document.getElementById("year").innerHTML = year;
